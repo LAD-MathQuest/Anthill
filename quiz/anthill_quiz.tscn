@@ -1,0 +1,443 @@
+[gd_scene load_steps=8 format=3 uid="uid://byjx0j3av6nog"]
+
+[ext_resource type="Theme" uid="uid://dpqtgdgb7qnk0" path="res://quiz/quiz_theme.tres" id="1_or1ch"]
+[ext_resource type="Script" uid="uid://8dre2pk6igow" path="res://quiz/anthill_quiz.gd" id="1_vthuu"]
+[ext_resource type="Texture2D" uid="uid://yvtgiopekol8" path="res://quiz/assets/background.jpg" id="2_jlqpf"]
+[ext_resource type="PackedScene" uid="uid://eg0bqt0kwi2y" path="res://quiz/label_question.tscn" id="4_ck81e"]
+[ext_resource type="Shader" uid="uid://yfhgqis5kshg" path="res://quiz/vfx/highlight.gdshader" id="4_vthuu"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ck81e"]
+lifetime_randomness = 1.0
+inherit_velocity_ratio = 1.0
+velocity_pivot = Vector3(1, 0, 0)
+spread = 180.0
+initial_velocity_min = 47.12
+initial_velocity_max = 47.12
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+color = Color(0.936067, 0.95, 0.114, 1)
+hue_variation_min = -0.16
+hue_variation_max = 0.19
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ck81e"]
+shader = ExtResource("4_vthuu")
+shader_parameter/Line_Smoothness = 0.045
+shader_parameter/Line_Width = 0.09
+shader_parameter/Brightness = 3.0
+shader_parameter/Rotation_deg = 30.0
+shader_parameter/Distortion = 1.8
+shader_parameter/Speed = 0.5
+shader_parameter/Position = 0.0
+shader_parameter/Position_Min = 0.25
+shader_parameter/Position_Max = 0.5
+shader_parameter/Alpha = 1.0
+
+[node name="AnthillQuiz" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme = ExtResource("1_or1ch")
+script = ExtResource("1_vthuu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jlqpf")
+expand_mode = 2
+
+[node name="Fireworks" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Particles1" type="GPUParticles2D" parent="Fireworks"]
+position = Vector2(222, 153)
+emitting = false
+amount = 200
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ck81e")
+
+[node name="Particles2" type="GPUParticles2D" parent="Fireworks"]
+position = Vector2(307, 287)
+emitting = false
+amount = 200
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ck81e")
+
+[node name="Particles3" type="GPUParticles2D" parent="Fireworks"]
+position = Vector2(153, 42)
+emitting = false
+amount = 200
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ck81e")
+
+[node name="Particles4" type="GPUParticles2D" parent="Fireworks"]
+position = Vector2(84, 249)
+emitting = false
+amount = 200
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ck81e")
+
+[node name="Particles5" type="GPUParticles2D" parent="Fireworks"]
+position = Vector2(423, 201)
+emitting = false
+amount = 200
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ck81e")
+
+[node name="Particles6" type="GPUParticles2D" parent="Fireworks"]
+position = Vector2(698, 103)
+emitting = false
+amount = 200
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ck81e")
+
+[node name="Particles7" type="GPUParticles2D" parent="Fireworks"]
+position = Vector2(492, 101)
+emitting = false
+amount = 200
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ck81e")
+
+[node name="Particles8" type="GPUParticles2D" parent="Fireworks"]
+position = Vector2(670, 288)
+emitting = false
+amount = 200
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ck81e")
+
+[node name="Particles9" type="GPUParticles2D" parent="Fireworks"]
+position = Vector2(611, 160)
+emitting = false
+amount = 200
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ck81e")
+
+[node name="ScoreContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScoreContainer"]
+layout_mode = 2
+
+[node name="SuccessContainer" type="PanelContainer" parent="ScoreContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScoreContainer/VBoxContainer/SuccessContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScoreContainer/VBoxContainer/SuccessContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScoreContainer/VBoxContainer/SuccessContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+text = "✅"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelSuccess" type="Label" parent="ScoreContainer/VBoxContainer/SuccessContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FailureContainer" type="PanelContainer" parent="ScoreContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScoreContainer/VBoxContainer/FailureContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScoreContainer/VBoxContainer/FailureContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScoreContainer/VBoxContainer/FailureContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "❌"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelFailure" type="Label" parent="ScoreContainer/VBoxContainer/FailureContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelContainer" type="PanelContainer" parent="ScoreContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScoreContainer/VBoxContainer/LevelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScoreContainer/VBoxContainer/LevelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScoreContainer/VBoxContainer/LevelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.498202, 0.56509, 1, 1)
+text = "⏳"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelProgress" type="Label" parent="ScoreContainer/VBoxContainer/LevelContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ControlContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ControlContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ButtonRestart" type="Button" parent="ControlContainer/HBoxContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "↺"
+
+[node name="PanelContainer2" type="PanelContainer" parent="ControlContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlContainer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ButtonQuit" type="Button" parent="ControlContainer/HBoxContainer/PanelContainer2/MarginContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "⏻"
+
+[node name="QuizContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -66.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ExtrasContainer" type="HBoxContainer" parent="QuizContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="QuestionContainer" type="HBoxContainer" parent="QuizContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="LabelQuestion" parent="QuizContainer/QuestionContainer" instance=ExtResource("4_ck81e")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Separator" type="MarginContainer" parent="QuizContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="QuizContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="QuizContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="OptionsContainer" type="HBoxContainer" parent="QuizContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Separator2" type="MarginContainer" parent="QuizContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Billboard" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Billboard"]
+layout_mode = 2
+
+[node name="SuccessDisplay" type="PanelContainer" parent="Billboard/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Billboard/VBoxContainer/SuccessDisplay"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Billboard/VBoxContainer/SuccessDisplay/MarginContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+text = "Parabens!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FailureDisplay" type="PanelContainer" parent="Billboard/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Billboard/VBoxContainer/FailureDisplay"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Billboard/VBoxContainer/FailureDisplay/MarginContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+text = "Tente novamente"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndGameDisplay" type="PanelContainer" parent="Billboard/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Billboard/VBoxContainer/EndGameDisplay"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Billboard/VBoxContainer/EndGameDisplay/MarginContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "Parabens!
+Você concluiu o jogo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Billboard/VBoxContainer/EndGameDisplay"]
+material = SubResource("ShaderMaterial_ck81e")
+layout_mode = 2
+
+[node name="Curtain" type="ColorRect" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.342, 0.342, 0.6, 1)
+
+[connection signal="pressed" from="ControlContainer/HBoxContainer/PanelContainer/MarginContainer/ButtonRestart" to="." method="_on_button_restart_pressed"]
+[connection signal="pressed" from="ControlContainer/HBoxContainer/PanelContainer2/MarginContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]

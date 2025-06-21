@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://eg0bqt0kwi2y"]
+
+[ext_resource type="Script" uid="uid://cwdwcdnfu8li8" path="res://quiz/label_question.gd" id="1_2hd8h"]
+
+[node name="LabelQuestion" type="PanelContainer"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_2hd8h")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+text = "x = □"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dusrxvaa1m4vr"]
+
+[ext_resource type="Script" uid="uid://cgftmt476mjuh" path="res://quiz/label_extra.gd" id="1_pnoef"]
+
+[node name="LabelExtra" type="PanelContainer"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_pnoef")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+text = "2a + x = 5 "
+horizontal_alignment = 1
+vertical_alignment = 1
