@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://byjx0j3av6nog"]
 
-[ext_resource type="Theme" uid="uid://dpqtgdgb7qnk0" path="res://quiz/quiz_theme.tres" id="1_or1ch"]
-[ext_resource type="Script" uid="uid://8dre2pk6igow" path="res://quiz/anthill_quiz.gd" id="1_vthuu"]
+[ext_resource type="Theme" uid="uid://dpqtgdgb7qnk0" path="res://common/ui_theme.tres" id="1_or1ch"]
+[ext_resource type="Script" uid="uid://8dre2pk6igow" path="res://quiz/quiz.gd" id="1_vthuu"]
 [ext_resource type="Texture2D" uid="uid://yvtgiopekol8" path="res://quiz/assets/background.jpg" id="2_jlqpf"]
 [ext_resource type="PackedScene" uid="uid://eg0bqt0kwi2y" path="res://quiz/label_question.tscn" id="4_ck81e"]
 [ext_resource type="Shader" uid="uid://yfhgqis5kshg" path="res://quiz/vfx/highlight.gdshader" id="4_vthuu"]
@@ -68,7 +68,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ck81e")
 
 [node name="Particles2" type="GPUParticles2D" parent="Fireworks"]
-position = Vector2(307, 287)
+position = Vector2(396, 391)
 emitting = false
 amount = 200
 lifetime = 2.0
@@ -78,7 +78,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ck81e")
 
 [node name="Particles3" type="GPUParticles2D" parent="Fireworks"]
-position = Vector2(153, 42)
+position = Vector2(136, 438)
 emitting = false
 amount = 200
 lifetime = 2.0
@@ -88,7 +88,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ck81e")
 
 [node name="Particles4" type="GPUParticles2D" parent="Fireworks"]
-position = Vector2(84, 249)
+position = Vector2(544, 292)
 emitting = false
 amount = 200
 lifetime = 2.0
@@ -98,7 +98,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ck81e")
 
 [node name="Particles5" type="GPUParticles2D" parent="Fireworks"]
-position = Vector2(423, 201)
+position = Vector2(730, 118)
 emitting = false
 amount = 200
 lifetime = 2.0
@@ -108,7 +108,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ck81e")
 
 [node name="Particles6" type="GPUParticles2D" parent="Fireworks"]
-position = Vector2(698, 103)
+position = Vector2(768, 349)
 emitting = false
 amount = 200
 lifetime = 2.0
@@ -118,7 +118,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ck81e")
 
 [node name="Particles7" type="GPUParticles2D" parent="Fireworks"]
-position = Vector2(492, 101)
+position = Vector2(1021, 222)
 emitting = false
 amount = 200
 lifetime = 2.0
@@ -128,7 +128,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ck81e")
 
 [node name="Particles8" type="GPUParticles2D" parent="Fireworks"]
-position = Vector2(670, 288)
+position = Vector2(956, 372)
 emitting = false
 amount = 200
 lifetime = 2.0
@@ -138,7 +138,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ck81e")
 
 [node name="Particles9" type="GPUParticles2D" parent="Fireworks"]
-position = Vector2(611, 160)
+position = Vector2(988, 503)
 emitting = false
 amount = 200
 lifetime = 2.0
@@ -162,16 +162,16 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ScoreContainer/VBoxContainer/SuccessContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 9
+theme_override_constants/margin_bottom = 9
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScoreContainer/VBoxContainer/SuccessContainer/MarginContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="ScoreContainer/VBoxContainer/SuccessContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(20, 0)
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 text = "✅"
 horizontal_alignment = 1
@@ -179,7 +179,7 @@ vertical_alignment = 1
 
 [node name="LabelSuccess" type="Label" parent="ScoreContainer/VBoxContainer/SuccessContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(45, 0)
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
@@ -190,16 +190,16 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ScoreContainer/VBoxContainer/FailureContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 9
+theme_override_constants/margin_bottom = 9
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScoreContainer/VBoxContainer/FailureContainer/MarginContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="ScoreContainer/VBoxContainer/FailureContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(20, 0)
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "❌"
@@ -208,7 +208,7 @@ vertical_alignment = 1
 
 [node name="LabelFailure" type="Label" parent="ScoreContainer/VBoxContainer/FailureContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(45, 0)
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
@@ -219,16 +219,16 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ScoreContainer/VBoxContainer/LevelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 9
+theme_override_constants/margin_bottom = 9
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScoreContainer/VBoxContainer/LevelContainer/MarginContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="ScoreContainer/VBoxContainer/LevelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(20, 0)
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.498202, 0.56509, 1, 1)
 text = "⏳"
@@ -237,7 +237,7 @@ vertical_alignment = 1
 
 [node name="LabelProgress" type="Label" parent="ScoreContainer/VBoxContainer/LevelContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(45, 0)
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -258,36 +258,49 @@ theme_override_constants/margin_bottom = 10
 [node name="HBoxContainer" type="HBoxContainer" parent="ControlContainer"]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="ControlContainer/HBoxContainer"]
+[node name="PanelContainerRestart" type="PanelContainer" parent="ControlContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="ControlContainer/HBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ControlContainer/HBoxContainer/PanelContainerRestart"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="ButtonRestart" type="Button" parent="ControlContainer/HBoxContainer/PanelContainer/MarginContainer"]
+[node name="ButtonRestart" type="Button" parent="ControlContainer/HBoxContainer/PanelContainerRestart/MarginContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
 text = "↺"
 
-[node name="PanelContainer2" type="PanelContainer" parent="ControlContainer/HBoxContainer"]
+[node name="PanelContainerHome" type="PanelContainer" parent="ControlContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="ControlContainer/HBoxContainer/PanelContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="ControlContainer/HBoxContainer/PanelContainerHome"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="ButtonQuit" type="Button" parent="ControlContainer/HBoxContainer/PanelContainer2/MarginContainer"]
+[node name="ButtonHome" type="Button" parent="ControlContainer/HBoxContainer/PanelContainerHome/MarginContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+text = "🏠"
+
+[node name="PanelContainerQuit" type="PanelContainer" parent="ControlContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlContainer/HBoxContainer/PanelContainerQuit"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ButtonQuit" type="Button" parent="ControlContainer/HBoxContainer/PanelContainerQuit/MarginContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
 text = "⏻"
 
 [node name="QuizContainer" type="VBoxContainer" parent="."]
@@ -353,8 +366,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
+offset_top = 40.0
 offset_right = 20.0
-offset_bottom = 40.0
+offset_bottom = 80.0
 grow_horizontal = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 20
@@ -377,7 +391,7 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="Label" type="Label" parent="Billboard/VBoxContainer/SuccessDisplay/MarginContainer"]
-custom_minimum_size = Vector2(200, 60)
+custom_minimum_size = Vector2(240, 80)
 layout_mode = 2
 text = "Parabens!"
 horizontal_alignment = 1
@@ -396,7 +410,7 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="Label" type="Label" parent="Billboard/VBoxContainer/FailureDisplay/MarginContainer"]
-custom_minimum_size = Vector2(200, 60)
+custom_minimum_size = Vector2(240, 80)
 layout_mode = 2
 text = "Tente novamente"
 horizontal_alignment = 1
@@ -409,13 +423,13 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Billboard/VBoxContainer/EndGameDisplay"]
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 9
+theme_override_constants/margin_bottom = 9
 
 [node name="Label" type="Label" parent="Billboard/VBoxContainer/EndGameDisplay/MarginContainer"]
-custom_minimum_size = Vector2(250, 100)
+custom_minimum_size = Vector2(310, 150)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 text = "Parabens!
@@ -439,5 +453,6 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.342, 0.342, 0.6, 1)
 
-[connection signal="pressed" from="ControlContainer/HBoxContainer/PanelContainer/MarginContainer/ButtonRestart" to="." method="_on_button_restart_pressed"]
-[connection signal="pressed" from="ControlContainer/HBoxContainer/PanelContainer2/MarginContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="ControlContainer/HBoxContainer/PanelContainerRestart/MarginContainer/ButtonRestart" to="." method="_on_button_restart_pressed"]
+[connection signal="pressed" from="ControlContainer/HBoxContainer/PanelContainerHome/MarginContainer/ButtonHome" to="." method="_on_button_home_pressed"]
+[connection signal="pressed" from="ControlContainer/HBoxContainer/PanelContainerQuit/MarginContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]

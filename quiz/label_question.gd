@@ -10,7 +10,7 @@ var text: String:
 
 @onready var label: Label = %Label
 
-const shaker : Resource = preload("res://quiz/vfx/shake_and_flash.gdshader")
+const shaker : Resource = preload("res://quiz/vfx/shake.gdshader")
 var shader_material: Material = ShaderMaterial.new()
 
 #------------------------------------------------------------------------------#
@@ -22,18 +22,19 @@ func _ready() -> void:
 
 #------------------------------------------------------------------------------#
 func show_success() -> void:
-	modulate = Color(0,1,0)
-	create_tween().tween_property(self, "modulate", Color(1,1,1), 0.3) \
+	label.modulate = Color(0,1,0)
+	label.create_tween().tween_property(self, "modulate", Color(1,1,1), 0.3) \
 		.set_trans(Tween.TRANS_CUBIC) \
 		.set_ease(Tween.EASE_IN)
 
 #------------------------------------------------------------------------------#
 func show_failure() -> void:
-	modulate       = Color(1,0,0)
+	label.modulate = Color(1,0,0)
+	await get_tree().create_timer(0.1).timeout
 	label.material = shader_material
 	await get_tree().create_timer(0.2).timeout
 	label.material = null
-	modulate       = Color(1,1,1)
+	label.modulate = Color(1,1,1)
 
 #------------------------------------------------------------------------------#
 const this_scene: PackedScene = preload("res://quiz/label_question.tscn")

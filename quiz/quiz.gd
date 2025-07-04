@@ -93,9 +93,8 @@ func _option_button_pressed(button: BaseButton) -> void:
 
 #------------------------------------------------------------------------------%
 func show_success() -> void:
-	if level == n_levels: return
-
-	success_display.visible = true
+	if level < n_levels:
+		success_display.visible = true
 
 	var particles = fireworks.get_children()
 	particles.shuffle()
@@ -133,6 +132,10 @@ func _on_button_restart_pressed() -> void:
 	var tween = create_tween()
 	tween.tween_property(curtain, "modulate:a", 1, 0.1).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(curtain, "modulate:a", 0, 0.1).set_trans(Tween.TRANS_CUBIC)
+
+#------------------------------------------------------------------------------%
+func _on_button_home_pressed() -> void:
+	MainMenu.load()
 
 #------------------------------------------------------------------------------%
 func _on_button_quit_pressed() -> void:

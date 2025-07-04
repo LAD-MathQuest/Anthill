@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5i48gvjxc8ej"]
+
+[ext_resource type="Script" uid="uid://cmhed0hjggoq0" path="res://topdown/leaf.gd" id="1_i0kmn"]
+[ext_resource type="Texture2D" uid="uid://b2y81u0se7m1f" path="res://topdown/assets/leaf-1.png" id="2_5jpii"]
+[ext_resource type="Texture2D" uid="uid://dlc561w1xrb6i" path="res://topdown/assets/leaf-2.png" id="3_6qldy"]
+[ext_resource type="Texture2D" uid="uid://dprxvh5nicaek" path="res://topdown/assets/leaf-3.png" id="4_yqn82"]
+[ext_resource type="Texture2D" uid="uid://bwl4fn6kqjtbh" path="res://topdown/assets/leaf-4.png" id="5_pbkwa"]
+[ext_resource type="Texture2D" uid="uid://bwsft5np0tfut" path="res://topdown/assets/leaf-5.png" id="6_t7lvp"]
+[ext_resource type="Texture2D" uid="uid://48ncexu1ha78" path="res://topdown/assets/leaf-6.png" id="7_15brc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i0kmn"]
+radius = 38.9144
+height = 114.0
+
+[node name="Leaf" type="Area2D" groups=["leaves"]]
+collision_layer = 4
+script = ExtResource("1_i0kmn")
+
+[node name="SpriteLeaf1" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(3.5, 0)
+scale = Vector2(0.626459, 0.544218)
+texture = ExtResource("2_5jpii")
+flip_h = true
+flip_v = true
+
+[node name="SpriteLeaf2" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(3.5, 0.499998)
+scale = Vector2(0.626459, 0.692982)
+texture = ExtResource("3_6qldy")
+flip_h = true
+flip_v = true
+
+[node name="SpriteLeaf3" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(0.626459, 0.465517)
+texture = ExtResource("4_yqn82")
+flip_h = true
+flip_v = true
+
+[node name="SpriteLeaf4" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(0.626459, 0.49133)
+texture = ExtResource("5_pbkwa")
+flip_h = true
+flip_v = true
+
+[node name="SpriteLeaf5" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0.801556, 0)
+scale = Vector2(0.650234, 0.544218)
+texture = ExtResource("6_t7lvp")
+flip_h = true
+flip_v = true
+
+[node name="SpriteLeaf6" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(0.626459, 0.692982)
+texture = ExtResource("7_15brc")
+flip_h = true
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(6, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_i0kmn")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "2+2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -16,7 +16,7 @@ theme_override_constants/margin_bottom = 5
 
 [node name="Label" type="Label" parent="MarginContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(120, 40)
+custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
 text = "x = □"
 horizontal_alignment = 1

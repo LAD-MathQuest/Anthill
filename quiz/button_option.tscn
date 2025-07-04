@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c414ukm2xh0u2" path="res://quiz/button_option.gd" id="1_kmiyv"]
 
 [node name="ButtonOption" type="Button"]
-custom_minimum_size = Vector2(120, 40)
+custom_minimum_size = Vector2(180, 60)
 offset_right = 8.0
 offset_bottom = 8.0
 size_flags_horizontal = 4

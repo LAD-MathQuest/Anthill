@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=3 uid="uid://yidjo3hdwh5t"]
+
+[ext_resource type="Script" uid="uid://bg0dyl8122sa6" path="res://main_menu/main_menu.gd" id="1_4l7av"]
+[ext_resource type="Theme" uid="uid://dpqtgdgb7qnk0" path="res://common/ui_theme.tres" id="1_bws42"]
+[ext_resource type="PackedScene" uid="uid://byjx0j3av6nog" path="res://quiz/quiz.tscn" id="2_3shxk"]
+[ext_resource type="PackedScene" uid="uid://3cs58oavm22w" path="res://topdown/top_down.tscn" id="3_bws42"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bws42")
+script = ExtResource("1_4l7av")
+names = Array[String](["Quiz", "Top Down"])
+scenes = Array[PackedScene]([ExtResource("2_3shxk"), ExtResource("3_bws42")])
+background_color = Color(0.38012, 0.516339, 0.513403, 1)
+
+[node name="Background" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.408329, 0.408329, 0.408329, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ButtonContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginQuit" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ButtonQuit" type="Button" parent="MarginQuit"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "⏻"
+
+[node name="MarginIcon" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginIcon"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginIcon/PanelContainer"]
+layout_mode = 2
+
+[node name="ProjectName" type="Label" parent="MarginIcon/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProjetctIcon" type="TextureRect" parent="MarginIcon/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="MarginQuit/ButtonQuit" to="." method="_on_button_quit_pressed"]
