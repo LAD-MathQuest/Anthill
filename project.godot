@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Anthill"
 run/main_scene="uid://yidjo3hdwh5t"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://b5luyssrbbomr"
 
 [display]
@@ -62,12 +62,13 @@ pick_up={
 
 [layer_names]
 
-2d_physics/layer_1="Player"
-2d_physics/layer_2="TileMap"
-2d_physics/layer_3="Leaves"
-2d_physics/layer_4="Anthill"
+2d_physics/layer_1="world"
+2d_physics/layer_2="player"
+2d_physics/layer_3="leaves"
+2d_physics/layer_4="anthill"
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true

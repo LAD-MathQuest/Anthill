@@ -35,8 +35,8 @@ func build_challenge() -> void:
 	update_score.call_deferred()
 
 	# Remove previous challenge
-	var children =        extras_container.  get_children()
-	children.append_array(options_container. get_children())
+	var children = extras_container.get_children()
+	children.append_array(options_container.get_children())
 
 	for child in children:
 		child.free()

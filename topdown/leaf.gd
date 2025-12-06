@@ -1,13 +1,15 @@
 #------------------------------------------------------------------------------#
 class_name Leaf extends Area2D
 
+@export var modulate_normal:    Color = Color.WHITE
+@export var modulate_collision: Color = Color(0.497, 0.635, 0.655)
+
 @onready var sprite_leaf_1:   Sprite2D = %SpriteLeaf1
 @onready var sprite_leaf_2:   Sprite2D = %SpriteLeaf2
 @onready var sprite_leaf_3:   Sprite2D = %SpriteLeaf3
 @onready var sprite_leaf_4:   Sprite2D = %SpriteLeaf4
 @onready var sprite_leaf_5:   Sprite2D = %SpriteLeaf5
 @onready var sprite_leaf_6:   Sprite2D = %SpriteLeaf6
-@onready var collision_shape: CollisionShape2D = %CollisionShape2D
 @onready var label:           Label = %Label
 
 var text: String:
@@ -22,8 +24,6 @@ var can_be_picked_up: bool  = false
 var player_in_range: Node2D = null
 var previous_parent: Node2D = null
 
-const color_modulate: Color = Color(0.348, 0.81, 0.502)
-
 var style: int = 1
 
 #------------------------------------------------------------------------------#
@@ -36,32 +36,30 @@ func _ready() -> void:
 		5: sprite_leaf_5.visible = true
 		6: sprite_leaf_6.visible = true
 
-	modulate = color_modulate
+	modulate = modulate_normal
 	position = Vector2(
 		randf_range(100, 800),
 		randf_range(100, 500)
 	)
 
-	print('end ready')
-
 #------------------------------------------------------------------------------#
-func _on_body_entered(body):
+func _on_body_entered(body: Node2D) -> void:
 	if not is_carried and body.is_in_group("player"):
 		body.leaf_entered_range(self)
 		player_in_range  = body
 		can_be_picked_up = true
-		modulate = Color.WHITE
+		modulate = modulate_collision
 
 #------------------------------------------------------------------------------#
-func _on_body_exited(body):
+func _on_body_exited(body: Node2D) -> void:
 	if body == player_in_range:
 		body.leaf_exited_range(self)
 		player_in_range  = null
 		can_be_picked_up = false
-		modulate = color_modulate
+		modulate = modulate_normal
 
 #------------------------------------------------------------------------------#
-func pick_up(by):
+func pick_up(by: Node2D) -> bool:
 	if not can_be_picked_up or is_carried: return false
 
 	is_carried       = true
@@ -69,18 +67,18 @@ func pick_up(by):
 	can_be_picked_up = false
 	player_in_range  = null
 
-	modulate = color_modulate
+	modulate = modulate_normal
 	previous_parent = get_parent()
 	previous_parent.remove_child(self)
 	carrier.add_child(self)
 	position = Vector2(0, -60)
 	rotation_degrees = -110
-	collision_shape.disabled = true
+	collision_mask = 8
 
 	return true
 
 #------------------------------------------------------------------------------#
-func drop():
+func drop() -> void:
 	if not is_carried: return
 
 	is_carried = false
@@ -89,7 +87,7 @@ func drop():
 	position = carrier.position + Vector2(0, -60)
 	rotation = 0
 	carrier  = null
-	collision_shape.disabled = false
+	collision_mask = 10
 
 #------------------------------------------------------------------------------#
 const this_scene: PackedScene = preload("res://topdown/leaf.tscn")

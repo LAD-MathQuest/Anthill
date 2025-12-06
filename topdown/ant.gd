@@ -1,13 +1,13 @@
 #------------------------------------------------------------------------------#
 class_name Ant extends CharacterBody2D
 
-@export var speed = 80
+@export var speed = 120
 
 var carried_leaf: Leaf = null
 var leaves_in_range: Array[Leaf] = []
 
 #------------------------------------------------------------------------------#
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_Q):
 		get_tree().change_scene_to_file("res://main/main.tscn")
 
@@ -32,14 +32,20 @@ func _input(event):
 	$AnimatedSprite2D.play("walk" if velocity else "idle")
 
 #------------------------------------------------------------------------------#
-func leaf_entered_range(leaf):
+func leaf_entered_range(leaf: Node2D) -> void:
 	if not leaf in leaves_in_range:
 		leaves_in_range.append(leaf)
 
 #------------------------------------------------------------------------------#
-func leaf_exited_range(leaf):
+func leaf_exited_range(leaf: Node2D) -> void:
 	if leaf in leaves_in_range:
 		leaves_in_range.erase(leaf)
+
+#------------------------------------------------------------------------------#
+func free_leaf() -> void:
+	if carried_leaf:
+		carried_leaf.free()
+		carried_leaf = null
 
 #------------------------------------------------------------------------------#
 @warning_ignore("unused_parameter")

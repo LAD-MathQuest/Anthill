@@ -28,7 +28,8 @@ func _ready() -> void:
 	background.size = get_viewport_rect().size
 	background.color = background_color
 
-	project_name.text = ProjectSettings.get_setting("application/config/name")
+	#project_name.text = ProjectSettings.get_setting("application/config/name")
+	project_name.text = "Álgebra no\nFormigueiro"
 
 	var icon_path = ProjectSettings.get_setting("application/config/icon")
 	projetct_icon.texture = load(icon_path) if icon_path else null

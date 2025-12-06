@@ -8,6 +8,7 @@ size = Vector2(61, 57)
 
 [node name="Anthill" type="Area2D"]
 collision_layer = 8
+collision_mask = 4
 script = ExtResource("1_qlsvg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -29,3 +30,14 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "4"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = -28.0
+offset_top = 11.0
+offset_right = 32.0
+offset_bottom = 69.0
+color = Color(0.925836, 0.0671317, 9.52989e-05, 0.815686)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
